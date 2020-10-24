@@ -9,6 +9,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using AppWeb.Models;
+using Services.Auth;
+using Entities.Models;
 
 namespace AppWeb.Controllers
 {

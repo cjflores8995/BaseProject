@@ -45,10 +45,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.4.1\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.4.1\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -164,7 +171,6 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -174,7 +180,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -184,19 +189,108 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Dashmix\assets\css\dashmix.min.css" />
+    <Content Include="Content\Dashmix\assets\css\themes\xdream.min.css" />
+    <Content Include="Content\Dashmix\assets\css\themes\xeco.min.css" />
+    <Content Include="Content\Dashmix\assets\css\themes\xinspire.min.css" />
+    <Content Include="Content\Dashmix\assets\css\themes\xmodern.min.css" />
+    <Content Include="Content\Dashmix\assets\css\themes\xplay.min.css" />
+    <Content Include="Content\Dashmix\assets\css\themes\xpro.min.css" />
+    <Content Include="Content\Dashmix\assets\css\themes\xsmooth.min.css" />
+    <Content Include="Content\Dashmix\assets\css\themes\xwork.min.css" />
+    <Content Include="Content\Dashmix\assets\fonts\fontawesome\fa-brands-400.svg" />
+    <Content Include="Content\Dashmix\assets\fonts\fontawesome\fa-regular-400.svg" />
+    <Content Include="Content\Dashmix\assets\fonts\fontawesome\fa-solid-900.svg" />
+    <Content Include="Content\Dashmix\assets\fonts\simple-line-icons\Simple-Line-Icons.svg" />
+    <Content Include="Content\Dashmix\assets\js\core\bootstrap.bundle.min.js" />
+    <Content Include="Content\Dashmix\assets\js\core\jquery-scrollLock.min.js" />
+    <Content Include="Content\Dashmix\assets\js\core\jquery.appear.min.js" />
+    <Content Include="Content\Dashmix\assets\js\core\jquery.min.js" />
+    <Content Include="Content\Dashmix\assets\js\core\js.cookie.min.js" />
+    <Content Include="Content\Dashmix\assets\js\core\simplebar.min.js" />
+    <Content Include="Content\Dashmix\assets\js\dashmix.app.min.js" />
+    <Content Include="Content\Dashmix\assets\js\dashmix.core.min.js" />
+    <Content Include="Content\Dashmix\assets\media\avatars\avatar0.jpg" />
+    <Content Include="Content\Dashmix\assets\media\avatars\avatar1.jpg" />
+    <Content Include="Content\Dashmix\assets\media\avatars\avatar10.jpg" />
+    <Content Include="Content\Dashmix\assets\media\avatars\avatar11.jpg" />
+    <Content Include="Content\Dashmix\assets\media\avatars\avatar12.jpg" />
+    <Content Include="Content\Dashmix\assets\media\avatars\avatar13.jpg" />
+    <Content Include="Content\Dashmix\assets\media\avatars\avatar14.jpg" />
+    <Content Include="Content\Dashmix\assets\media\avatars\avatar15.jpg" />
+    <Content Include="Content\Dashmix\assets\media\avatars\avatar16.jpg" />
+    <Content Include="Content\Dashmix\assets\media\avatars\avatar2.jpg" />
+    <Content Include="Content\Dashmix\assets\media\avatars\avatar3.jpg" />
+    <Content Include="Content\Dashmix\assets\media\avatars\avatar4.jpg" />
+    <Content Include="Content\Dashmix\assets\media\avatars\avatar5.jpg" />
+    <Content Include="Content\Dashmix\assets\media\avatars\avatar6.jpg" />
+    <Content Include="Content\Dashmix\assets\media\avatars\avatar7.jpg" />
+    <Content Include="Content\Dashmix\assets\media\avatars\avatar8.jpg" />
+    <Content Include="Content\Dashmix\assets\media\avatars\avatar9.jpg" />
+    <Content Include="Content\Dashmix\assets\media\favicons\apple-touch-icon-180x180.png" />
+    <Content Include="Content\Dashmix\assets\media\favicons\favicon-192x192.png" />
+    <Content Include="Content\Dashmix\assets\media\favicons\favicon.png" />
+    <Content Include="Content\Dashmix\assets\media\photos\bg_minecraft.png" />
+    <Content Include="Content\Dashmix\assets\media\photos\photo1.jpg" />
+    <Content Include="Content\Dashmix\assets\media\photos\photo10.jpg" />
+    <Content Include="Content\Dashmix\assets\media\photos\photo11.jpg" />
+    <Content Include="Content\Dashmix\assets\media\photos\photo12.jpg" />
+    <Content Include="Content\Dashmix\assets\media\photos\photo13.jpg" />
+    <Content Include="Content\Dashmix\assets\media\photos\photo14.jpg" />
+    <Content Include="Content\Dashmix\assets\media\photos\photo15.jpg" />
+    <Content Include="Content\Dashmix\assets\media\photos\photo16.jpg" />
+    <Content Include="Content\Dashmix\assets\media\photos\photo17.jpg" />
+    <Content Include="Content\Dashmix\assets\media\photos\photo18.jpg" />
+    <Content Include="Content\Dashmix\assets\media\photos\photo19.jpg" />
+    <Content Include="Content\Dashmix\assets\media\photos\photo2.jpg" />
+    <Content Include="Content\Dashmix\assets\media\photos\photo20.jpg" />
+    <Content Include="Content\Dashmix\assets\media\photos\photo21.jpg" />
+    <Content Include="Content\Dashmix\assets\media\photos\photo22.jpg" />
+    <Content Include="Content\Dashmix\assets\media\photos\photo23.jpg" />
+    <Content Include="Content\Dashmix\assets\media\photos\photo24.jpg" />
+    <Content Include="Content\Dashmix\assets\media\photos\photo25.jpg" />
+    <Content Include="Content\Dashmix\assets\media\photos\photo26.jpg" />
+    <Content Include="Content\Dashmix\assets\media\photos\photo27.jpg" />
+    <Content Include="Content\Dashmix\assets\media\photos\photo28.jpg" />
+    <Content Include="Content\Dashmix\assets\media\photos\photo29.jpg" />
+    <Content Include="Content\Dashmix\assets\media\photos\photo3.jpg" />
+    <Content Include="Content\Dashmix\assets\media\photos\photo30.jpg" />
+    <Content Include="Content\Dashmix\assets\media\photos\photo4.jpg" />
+    <Content Include="Content\Dashmix\assets\media\photos\photo5.jpg" />
+    <Content Include="Content\Dashmix\assets\media\photos\photo6.jpg" />
+    <Content Include="Content\Dashmix\assets\media\photos\photo7.jpg" />
+    <Content Include="Content\Dashmix\assets\media\photos\photo8.jpg" />
+    <Content Include="Content\Dashmix\assets\media\photos\photo9.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Config\connectionString.config" />
+    <Content Include="Content\Dashmix\assets\fonts\fontawesome\fa-brands-400.eot" />
+    <Content Include="Content\Dashmix\assets\fonts\fontawesome\fa-brands-400.ttf" />
+    <Content Include="Content\Dashmix\assets\fonts\fontawesome\fa-brands-400.woff" />
+    <Content Include="Content\Dashmix\assets\fonts\fontawesome\fa-brands-400.woff2" />
+    <Content Include="Content\Dashmix\assets\fonts\fontawesome\fa-regular-400.eot" />
+    <Content Include="Content\Dashmix\assets\fonts\fontawesome\fa-regular-400.ttf" />
+    <Content Include="Content\Dashmix\assets\fonts\fontawesome\fa-regular-400.woff" />
+    <Content Include="Content\Dashmix\assets\fonts\fontawesome\fa-regular-400.woff2" />
+    <Content Include="Content\Dashmix\assets\fonts\fontawesome\fa-solid-900.eot" />
+    <Content Include="Content\Dashmix\assets\fonts\fontawesome\fa-solid-900.ttf" />
+    <Content Include="Content\Dashmix\assets\fonts\fontawesome\fa-solid-900.woff" />
+    <Content Include="Content\Dashmix\assets\fonts\fontawesome\fa-solid-900.woff2" />
+    <Content Include="Content\Dashmix\assets\fonts\simple-line-icons\Simple-Line-Icons.eot" />
+    <Content Include="Content\Dashmix\assets\fonts\simple-line-icons\Simple-Line-Icons.ttf" />
+    <Content Include="Content\Dashmix\assets\fonts\simple-line-icons\Simple-Line-Icons.woff" />
+    <Content Include="Content\Dashmix\assets\fonts\simple-line-icons\Simple-Line-Icons.woff2" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.signalR-2.4.1.js" />
+    <Content Include="Scripts\jquery.signalR-2.4.1.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -252,6 +346,20 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{9348644D-8A10-4F4A-B2FA-021857B7BB86}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{8DF0EE4C-CB01-48EE-96E0-9A46C6CFD0F2}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Services\Services.csproj">
+      <Project>{3B0ACDB0-6432-4441-BA36-47DF9A5F3BEC}</Project>
+      <Name>Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

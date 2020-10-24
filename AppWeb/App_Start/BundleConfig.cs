@@ -9,7 +9,10 @@ namespace AppWeb
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+                        "~/Scripts/jquery-{version}.js",
+                        "~/Content/Dashmix/assets/js/dashmix.app.min.js",
+                        "~/Content/Dashmix/assets/js/dashmix.core.min.js"
+                        ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -23,6 +26,7 @@ namespace AppWeb
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
+                        "~/Content/Dashmix/assets/css/dashmix.min.css",
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
         }
